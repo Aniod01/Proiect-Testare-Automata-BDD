@@ -16,11 +16,11 @@ Feature: Testing the Sign up functionality on DemoBlaze website
     Then I should see a pop-up alert message "This user already exist." and choose ok
 
  @sign_up_3
-#  Scenario: Test Sign up with unregistered user and accept
-#    When  I enter "aniod0@@" as Username on "Sign up" pop-up from
-#    When  I enter "testtest" as Password on "Sign up" pop-up from
-#    When  I click on Sign up button in the "Sign up" pop-up from
-#    Then  I should see a pop-up alert message "Sign up successful." and choose ok
+  Scenario: Test Sign up with unregistered user and accept
+    When  I enter "aniod15" as Username on "Sign up" pop-up from
+    When  I enter "testtest" as Password on "Sign up" pop-up from
+    When  I click on Sign up button in the "Sign up" pop-up from
+    Then  I should see a pop-up alert message "Sign up successful." and choose ok
 
 
   @signup_close

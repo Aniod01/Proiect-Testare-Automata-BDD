@@ -16,6 +16,7 @@ def step_impl(context, message):
     context.base_page.test_validate_confirmation_message_alert(message)
 
 
+
 @when(u'I enter "{username_text}" as Username on "Log in" pop-up from')
 def step_impl(context, username_text):
     context.login_page.set_username(username_text)
@@ -30,6 +31,9 @@ def step_impl(context, pass_text):
 def step_impl(context, user):
     context.login_page.check_login_link(user)
 
+@when(u'I click on  Log out button')
+def step_impl(context):
+    context.login_page.click_logout_button()
 
 @when(u'I click on Close button in the "Log in" pop-up from')
 def step_impl(context):

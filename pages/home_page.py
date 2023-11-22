@@ -1,12 +1,9 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class HomePage(BasePage):
     HOME_PAGE_URL = "https://www.demoblaze.com/index.html"
-
     MODAL_FORM = (By.ID, 'logInModalLabel')
     TEXT = (By.XPATH, f'//a[contains(text(),"")]')
     # categories

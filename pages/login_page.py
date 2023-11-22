@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,6 +15,11 @@ class LoginPage(BasePage):
     BUTTON_LOGIN = (By.XPATH, '//button[contains(text(),"Log in")]')
     MODAL_FORM = (By.CSS_SELECTOR, 'h5[id=logInModalLabel]')
     BUTTON_CLOSE = (By.XPATH, '//div[@id="logInModal"]//button[contains(text(),"Close")]')
+
+    #logout
+    LOGOUT_LINK = (By.LINK_TEXT, "Log out")
+
+
 
     def click_on_login_menu(self):
         self.driver.implicitly_wait(1)
@@ -30,6 +37,11 @@ class LoginPage(BasePage):
 
     def click_close_button(self):
         self.click(self.BUTTON_CLOSE)
+
+    def click_logout_button(self):
+        sleep(3)
+        self.click(self.LOGOUT_LINK)
+        assert self.find(self.LOGIN_LINK).is_displayed()
 
     def is_modal_form_displayed(self):
         assert self.find(self.MODAL_FORM).is_displayed()
