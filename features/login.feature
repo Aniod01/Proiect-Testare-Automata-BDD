@@ -1,4 +1,4 @@
-Feature: Testing the Login/Logout in functionality on DemoBlaze website
+Feature: Testing the Login/Logout functionality on DemoBlaze website
 
   Background:
     Given I am user on Demoblaze home page
