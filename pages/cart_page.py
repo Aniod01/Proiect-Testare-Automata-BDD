@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
@@ -5,7 +7,11 @@ from pages.base_page import BasePage
 class CartPage(BasePage):
     CART_PAGE_URL = "https://www.demoblaze.com/cart.html"
     CART_LINK = (By.LINK_TEXT, "Cart")
-    # Elements mapping
+
+    ADD_CART_SAMSUNG_LINK = (By.LINK_TEXT, "Samsung galaxy s6")
+    ADD_CART_SAMSUNG_BUTTON = (By.LINK_TEXT, "Add to cart")
+    PRODUCT_DETAILS_H2 = (By.CLASS_NAME, 'name')
+
     CART_LIST = (By.ID, "tbodyid")
     PURCHASE_BUTTON = (By.XPATH, "//button[contains(text(),'Purchase')]")
     PLACE_ORDER_BUTTON = (By.XPATH, "//button[contains(text(),'Place Order')]")
@@ -26,5 +32,16 @@ class CartPage(BasePage):
 
     def click_on_purchase(self):
         self.click(self.PURCHASE_BUTTON)
+
+    def click_item(self):
+        self.driver.implicitly_wait(1)
+        self.click(self.ADD_CART_SAMSUNG_LINK)
+
+    def element_displayed(self):
+        assert self.find(self.PRODUCT_DETAILS_H2).is_displayed(), "Product details is not displayed"
+    def add_item_to_cart(self):
+        sleep(1)
+        self.click(self.ADD_CART_SAMSUNG_BUTTON)
+
 
 
