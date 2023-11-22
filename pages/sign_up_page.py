@@ -7,7 +7,7 @@ class SignUpPage(BasePage):
     INPUT_USERNAME_SIGN_UP = (By.ID, "sign-username")
     INPUT_PASSWORD_SIGN_UP = (By.ID, "sign-password")
     BUTTON_SIGN_UP = (By.XPATH, '//button[contains(text(),"Sign up")]')
-    BUTTON_CLOSE_SIGN_UP = (By.XPATH, '//div[@id="signInModal"]//button[contains(text(),"Close.")]')
+    BUTTON_CLOSE_SIGN_UP = (By.XPATH, '//div[@id="signInModal"]//button[contains(text(),"Close")]')
 
     def click_on_sign_up_menu(self):
         self.driver.implicitly_wait(1)

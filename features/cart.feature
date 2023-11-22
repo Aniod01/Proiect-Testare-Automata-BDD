@@ -1,7 +1,7 @@
 Feature: Testing cart page functionality on DemoBlaze website
   Background:
     Given I am user on Demoblaze home page
-    
+
 @add_to_cart
 Scenario: Test add an item to cart
 	When I click an item
