@@ -6,12 +6,28 @@ def step_impl(context):
 
 @then(u'I will be redirected to the product details')
 def step_impl(context):
-    context.cart_page.element_displayed()
+    assert context.cart_page.element_displayed()
 
 
 @when(u'I click Add to Cart')
 def step_impl(context):
    context.cart_page.add_item_to_cart()
+
+
+
+@then(u'Dialog box should open to enter details to place order')
+def step_impl(context):
+    context.cart_page.set_name_input("Lucian")
+    context.cart_page.set_country_input("Ro")
+    context.cart_page.set_city_input("Bn")
+    context.cart_page.set_credit_input("Master")
+    context.cart_page.set_month_input("Iulie")
+    context.cart_page.set_year_input("2026")
+
+@then(u'I should see successful message saying "{message}"')
+def step_impl(context, message):
+    context.cart_page.verify_purchase_message(message)
+
 
 @when(u'I click on Cart on navigation menu')
 def step_impl(context):
