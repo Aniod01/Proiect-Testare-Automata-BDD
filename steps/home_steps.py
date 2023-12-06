@@ -10,7 +10,28 @@ def step_impl(context):
 def step_impl(context, category_name):
     context.home_page.check_categories_visibility(category_name)
 
+@then(u'Get In Touch section is correctly displayed')
+def step_impl(context):
+    context.home_page.get_in_touch()
 
+@then(u'About Us section is correctly displayed')
+def step_impl(context):
+    context.home_page.about_us()
+
+@when(u'I click on "Phones" category link')
+def step_impl(context):
+    context.home_page.click_phones_category()
+@when(u'I click on "Laptops" category link')
+def step_impl(context):
+    context.home_page.click_laptops_category()
+
+@when(u'I click on "Monitors" category link')
+def step_impl(context):
+    context.home_page.click_monitors_category()
+
+@then(u'Items of listed category is displayed')
+def step_impl(context):
+    context.home_page.check_items_display()
 @then(u'The URL of the page is "{url}"')
 def step_impl(context, url):
     context.home_page.is_url_correct(url), "The login page url is incorrect."

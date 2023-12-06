@@ -27,4 +27,4 @@ class SignUpPage(BasePage):
         self.click(self.BUTTON_CLOSE_SIGN_UP)
 
     def alert_sign_up(self):
-        self.test_validate_confirmation_message_alert()
+        self.validate_confirmation_message_alert()

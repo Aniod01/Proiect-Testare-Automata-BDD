@@ -1,4 +1,3 @@
-
 from time import sleep
 
 from selenium.webdriver.common.by import By
@@ -9,14 +8,17 @@ from pages.base_page import BasePage
 
 
 class CartPage(BasePage):
+
+    HOMEPAGE_URL = 'https://www.demoblaze.com/index.html'
+    HOMEPAGE = (By.ID, 'nava')
     CART_PAGE_URL = "https://www.demoblaze.com/cart.html"
     CART_LINK = (By.LINK_TEXT, "Cart")
 
     ADD_CART_SAMSUNG_LINK = (By.LINK_TEXT, "Samsung galaxy s6")
-    ADD_CART_SAMSUNG_BUTTON = (By.LINK_TEXT, "Add to cart")
+    ADD_CART_BUTTON = (By.LINK_TEXT, "Add to cart")
     PRODUCT_DETAILS_H2 = (By.CLASS_NAME, 'name')
     SUCCES_MESSAGE_H2 = (By.XPATH, '//div[@class="sweet-alert  showSweetAlert visible"]/h2')
-
+    All_PRODUCTS_CART_LIST = (By.CLASS_NAME, "success")
     CART_LIST = (By.ID, "tbodyid")
     PURCHASE_BUTTON = (By.XPATH, "//button[contains(text(),'Purchase')]")
     PLACE_ORDER_BUTTON = (By.XPATH, "//button[contains(text(),'Place Order')]")
@@ -44,15 +46,11 @@ class CartPage(BasePage):
         self.click(self.ADD_CART_SAMSUNG_LINK)
 
     def element_displayed(self):
-        return self.find(self.PRODUCT_DETAILS_H2).is_displayed(), "Product details is not displayed"
+        return self.find(self.PRODUCT_DETAILS_H2).is_displayed()
 
     def add_item_to_cart(self):
         sleep(2)
-        self.click(self.ADD_CART_SAMSUNG_BUTTON)
-
-    def verify_cart_item(self):
-        count = len(self.find(self.CART_LIST))
-        assert count == 2
+        self.click(self.ADD_CART_BUTTON)
 
     def set_name_input(self, name_input):
         self.type(self.NAME_INPUT, name_input)
@@ -77,5 +75,12 @@ class CartPage(BasePage):
         actual = self.find(self.SUCCES_MESSAGE_H2).text
         assert message in actual, "No expected messsage"
 
+    def verify_cart_nr_of_items(self, number):
+        self.find(self.CART_LIST)
+        items = self.find_all(self.All_PRODUCTS_CART_LIST)
+        assert len(items) == int(number), (
+            f'Error, number of items does not match, expected: {number}, ' f'but got: {len(items)}')
 
-
+    def go_back_homepage(self):
+        self.click(self.HOMEPAGE)
+        assert self.driver.current_url == self.HOMEPAGE_URL
