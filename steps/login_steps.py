@@ -44,4 +44,4 @@ def step_impl(context):
 
 @then(u'I am returned to DemoBlaze homepage "{url}"')
 def step_impl(context, url):
-    context.login_page.is_url_correct(url), "The home page url is incorrect."
+    context.base_page.is_url_correct(url)

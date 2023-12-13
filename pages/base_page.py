@@ -39,7 +39,7 @@ class BasePage(Browser):
         return self.find(locator).text
 
     def is_url_correct(self, url):
-        return self.driver.current_url == url
+        assert self.driver.current_url == url, "The home page url is incorrect."
 
     def alert_ok(self):
         self.driver.switch_to.alert.accept()

@@ -33,7 +33,7 @@ Feature: Testing the home page functionality on DemoBlaze website
     Then   About Us section is correctly displayed
   @url
   Scenario: Check that the URL is correct
-    Then    The URL of the page is "https://www.demoblaze.com"
+    Then    The URL of the page is "https://www.demoblaze.com/index.html"
 
 
 #    @nav_menu

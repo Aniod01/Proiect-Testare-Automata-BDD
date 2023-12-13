@@ -35,12 +35,12 @@ Feature: Testing the Login/Logout functionality on DemoBlaze website
     When I enter "1234" as Password on "Log in" pop-up from
     When I click on Log in button in the "Log in" pop-up from
     When I click on  Log out button
-    Then I am returned to DemoBlaze homepage "url"
+    Then I am returned to DemoBlaze homepage "https://www.demoblaze.com/index.html"
 
   @login_close
   Scenario: Test Log in function by clicking close
     When  I click on Close button in the "Log in" pop-up from
-    Then  I am returned to DemoBlaze homepage "url"
+    Then  I am returned to DemoBlaze homepage "https://www.demoblaze.com/index.html"
 
 
 

@@ -33,11 +33,11 @@ class HomePage(BasePage):
         element = self.driver.find_element(By.XPATH, f'//a[contains(text(),"{category_name}")]')
         assert element, f' Error, element {category_name} is not visible!'
 
-    def get_in_touch(self):
+    def verify_get_in_touch_text_is_correct(self):
         get_in_touch_element = self.find(self.BOTTOM_GET_IN_TOUCH).text
         assert "Get in Touch" in get_in_touch_element
 
-    def about_us(self):
+    def verify_about_us_text_is_correct(self):
         description = self.find(self.ABOUT_US_BOTTOM).text
         assert description == self.ABOUT_US_BOTTOM_INFO, "Description does  not match"
 

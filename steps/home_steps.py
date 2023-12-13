@@ -12,11 +12,11 @@ def step_impl(context, category_name):
 
 @then(u'Get In Touch section is correctly displayed')
 def step_impl(context):
-    context.home_page.get_in_touch()
+    context.home_page.verify_get_in_touch_text_is_correct()
 
 @then(u'About Us section is correctly displayed')
 def step_impl(context):
-    context.home_page.about_us()
+    context.home_page.verify_about_us_text_is_correct()
 
 @when(u'I click on "Phones" category link')
 def step_impl(context):
@@ -34,4 +34,4 @@ def step_impl(context):
     context.home_page.check_items_display()
 @then(u'The URL of the page is "{url}"')
 def step_impl(context, url):
-    context.home_page.is_url_correct(url), "The login page url is incorrect."
+    context.home_page.is_url_correct(url)

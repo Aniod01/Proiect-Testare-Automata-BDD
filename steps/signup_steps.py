@@ -1,3 +1,5 @@
+from random import randint
+
 from behave import *
 
 
@@ -14,7 +16,13 @@ def step_impl(context, username_text):
 @when(u'I enter "{pass_text}" as Password on "Sign up" pop-up from')
 def step_impl(context, pass_text):
     context.sign_up_page.set_password_sign_up(pass_text)
-
+@when(u'I enter  username as Username on "Sign up" pop-up from')
+def step_impl(context):
+    random_number = randint(1, 99999999999999)
+    context.sign_up_page.set_username_sign_up("Aniod" + f'{random_number}')
+@when(u'I enter password as Password on "Sign up" pop-up from')
+def step_impl(context,):
+    context.sign_up_page.set_password_sign_up("123456")
 
 @when(u'I click on Sign up button in the "Sign up" pop-up from')
 def step_impl(context):
