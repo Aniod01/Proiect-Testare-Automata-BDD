@@ -1,7 +1,7 @@
 # Demoblaze BDD Automation Framework
-DemoBlaze Store is an E-Commerce page to buy electronic devices online.
 
-## Introductieon
+
+## Introduction
 DemoBlaze Store (https://www.demoblaze.com) is an E-Commerce page to buy electronic devices online.
 - Design pattern used: page object model(POM)
 - Methodology: behavior driven development(BDD)
@@ -44,7 +44,7 @@ Install Git Bash terminal, select a folder where you want to copy the project an
 To install the required libraries, execute the following commands:
 - `pip install selenium`
 - `pip install behave`
-- `pip install webdriver_manager`
+- `pip install webdriver-manager`
 - `pip install behave-html-formatter`
 
 ## Running the Project use the following command
